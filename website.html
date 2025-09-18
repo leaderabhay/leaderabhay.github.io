@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABHAY GAMING VIP STORE</title>
+    <style>
+        :root {
+            --primary: #ffc107;
+            --primary-dark: #ffa000;
+            --dark: #1a1a1a;
+            --darker: #121212;
+            --light: #f8f9fa;
+            --success: #28a745;
+            --danger: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(255, 193, 7, 0.1), transparent 70%);
+            pointer-events: none;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 193, 7, 0.8), 0 0 20px rgba(255, 193, 7, 0.6);
+            }
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .logo p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+        }
+        
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .service-section {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 193, 7, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--primary);
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .plan-card {
+            background: rgba(30, 30, 30, 0.7);
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid rgba(255, 193, 7, 0.2);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .plan-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 193, 7, 0.05), transparent);
+            pointer-events: none;
+        }
+        
+        .plan-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .plan-title {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .plan-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 15px 0;
+            color: white;
+        }
+        
+        .plan-price span {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .plan-features {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+        
+        .plan-features li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .plan-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--dark);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 160, 0, 0.3);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        input, select {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(30, 30, 30, 0.8);
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
+        }
+        
+        .payment-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        
+        .payment-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        
+        .payment-content {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            border-radius: 10px;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--primary);
+            position: relative;
+            transform: translateY(-20px);
+            transition: transform 0.3s;
+        }
+        
+        .payment-modal.active .payment-content {
+            transform: translateY(0);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .payment-details {
+            margin-top: 20px;
+        }
+        
+        .payment-info {
+            background-color: rgba(255, 193, 7, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 5px 5px 0;
+        }
+        
+        .payment-info p {
+            margin-bottom: 8px;
+        }
+        
+        .payment-info strong {
+            color: var(--primary);
+        }
+        
+        .qr-code {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        
+        .qr-code::before {
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px dashed rgba(255, 193, 7, 0.5);
+            border-radius: 3px;
+            pointer-events: none;
+        }
+        
+        .qr-code img {
+            max-width: 200px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .note {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+            background-color: var(--darker);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .star {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle var(--duration, 3s) infinite ease-in-out;
+            opacity: 0;
+        }
+        
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .plans {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 193, 7, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 193, 7, 0);
+            }
+        }
+        
+        .copy-btn {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            transition: all 0.2s;
+        }
+        
+        .copy-btn:hover {
+            background-color: rgba(255, 193, 7, 0.2);
+        }
+        
+        .upi-id {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .telegram-username {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1 class="fade-in">ABHAY GAMING VIP STORE</h1>
+                <p class="slide-up">Get VIP Likes for your Free Fire ID - Automatic or Manual Delivery</p>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="main-content">
+            <section class="service-section slide-up">
+                <h2 class="section-title">🔥 VIP Like Features</h2>
+                <div class="plans">
+                    <div class="plan-card">
+                        <h3 class="plan-title">📌 Auto Likes</h3>
+                        <div class="plan-price">₹40 <span>/ 7 Days</span></div>
+                        <ul class="plan-features">
+                            <li>Set your UID once</li>
+                            <li>Receive likes automatically every day at 8 AM</li>
+                            <li>Up to 100 likes per day</li>
+                            <li>No daily reminders needed</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-type="auto" data-days="7" data-price="35">Select Plan</button>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <h3 class="plan-title">📌 Auto Likes</h3>
+                        <div class="plan-price">₹65 <span>/ 14 Days</span></div>
+                        <ul class="plan-features">
+                            <li>Set your UID once</li>
+                            <li>Receive likes automatically every day at 8 AM</li>
+                            <li>Up to 100 likes per day</li>
+                            <li>No daily reminders needed</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-type="auto" data-days="14" data-price="60">Select Plan</button>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <h3 class="plan-title">📌 Auto Likes</h3>
+                        <div class="plan-price">₹110 <span>/ 30 Days</span></div>
+                        <ul class="plan-features">
+                            <li>Set your UID once</li>
+                            <li>Receive likes automatically every day at 8 AM</li>
+                            <li>Up to 100 likes per day</li>
+                            <li>No daily reminders needed</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-type="auto" data-days="30" data-price="100">Select Plan</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="service-section slide-up">
+                <h2 class="section-title">📌 Manual Likes</h2>
+                <div class="plans">
+                    <div class="plan-card">
+                        <h3 class="plan-title">📌 Manual Likes</h3>
+                        <div class="plan-price">₹30 <span>/ 7 Days</span></div>
+                        <ul class="plan-features">
+                            <li>Send your UID daily</li>
+                            <li>Receive likes manually</li>
+                            <li>Up to 100 likes per day</li>
+                            <li>More control over timing</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-type="manual" data-days="7" data-price="25">Select Plan</button>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <h3 class="plan-title">📌 Manual Likes</h3>
+                        <div class="plan-price">₹50 <span>/ 14 Days</span></div>
+                        <ul class="plan-features">
+                            <li>Send your UID daily</li>
+                            <li>Receive likes manually</li>
+                            <li>Up to 100 likes per day</li>
+                            <li>More control over timing</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-type="manual" data-days="14" data-price="45">Select Plan</button>
+                    </div>
+                    
+                    <div class="plan-card">
+                        <h3 class="plan-title">📌 Manual Likes</h3>
+                        <div class="plan-price">₹85 <span>/ 30 Days</span></div>
+                        <ul class="plan-features">
+                            <li>Send your UID daily</li>
+                            <li>Receive likes manually</li>
+                            <li>Up to 100 likes per day</li>
+                            <li>More control over timing</li>
+                        </ul>
+                        <button class="btn btn-primary select-plan" data-type="manual" data-days="30" data-price="80">Select Plan</button>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="service-section slide-up" id="order-form" style="display: none;">
+                <h2 class="section-title">Place Your Order</h2>
+                <form id="vip-order-form">
+                    <div class="form-group">
+                        <label for="uid">Free Fire UID</label>
+                        <input type="text" id="uid" placeholder="Enter your Free Fire UID" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="server">Server Name</label>
+                        <input type="text" id="server" placeholder="Enter your server name" required>
+                    </div>
+                    
+                    <div class="form-group telegram-username">
+                        <label for="telegram">Telegram Username (with @)</label>
+                        <input type="text" id="telegram" placeholder="Enter your Telegram username (e.g., @username)" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="plan-type">Plan Type</label>
+                        <input type="text" id="plan-type" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="plan-duration">Plan Duration</label>
+                        <input type="text" id="plan-duration" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="plan-price">Plan Price</label>
+                        <input type="text" id="plan-price" readonly>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary pulse">Proceed to Payment</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    
+    <div class="payment-modal" id="payment-modal">
+        <div class="payment-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 class="section-title">Complete Your Payment</h2>
+            
+            <div class="payment-details">
+                <div class="payment-info">
+                    <p><strong>Order ID:</strong> <span id="order-id">FFVL-</span></p>
+                    <p><strong>Plan:</strong> <span id="payment-plan-type"></span> (<span id="payment-plan-duration"></span>)</p>
+                    <p><strong>Amount:</strong> ₹<span id="payment-amount"></span></p>
+                    <p><strong>UID:</strong> <span id="payment-uid"></span></p>
+                    <p><strong>Server:</strong> <span id="payment-server"></span></p>
+                    <p><strong>Telegram:</strong> <span id="payment-telegram"></span></p>
+                </div>
+                
+                <div class="qr-code">
+                    <h3>Scan QR Code to Pay</h3>
+                    <img id="upi-qr-code" src="index.html" alt="UPI Payment QR Code">
+                    <div class="upi-id">
+                        <span id="display-upi-id">leaderabhay869@fam</span>
+                        <button class="copy-btn" id="copy-upi-id">Copy</button>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="transaction-id">Transaction ID/Reference No.</label>
+                    <input type="text" id="transaction-id" placeholder="Enter your transaction ID after payment">
+                </div>
+                
+                <button class="btn btn-primary" id="confirm-payment">Confirm Payment</button>
+                
+                <p class="note">Note: After payment confirmation, your likes service will be activated within 2 hours. For any issues, contact support with your Order ID.</p>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="fade-in">
+        <div class="container">
+            <p>© 2025 ABHAY FF VIP LIKES SERVICE. Not affiliated with Garena or Free Fire.</p>
+            <p>🚫 Anyone claiming they can give more than 100 likes per day is a scammer. Stay safe!</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Create twinkling stars
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 50;
+            
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.classList.add('star');
+                
+                // Random position
+                const x = Math.random() * 100;
+                const y = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                
+                // Random animation duration
+                const duration = Math.random() * 3 + 2;
+                
+                star.style.left = `${x}%`;
+                star.style.top = `${y}%`;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+                star.style.setProperty('--duration', `${duration}s`);
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        // Generate random order ID
+        function generateOrderId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '';
+            for (let i = 0; i < 6; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return 'FFVL-' + result;
+        }
+        
+        // Store orders in localStorage
+        function storeOrder(order) {
+            let orders = JSON.parse(localStorage.getItem('ff_vip_orders')) || [];
+            orders.push(order);
+            localStorage.setItem('ff_vip_orders', JSON.stringify(orders));
+        }
+        
+        // Send data to Telegram bot
+        async function sendToTelegram(order) {
+            const botToken = '8302104778:AAFwmnWLqo4FJK3Wz9uvRg-mD_n_kKv_5OA'; // Replace with your bot token
+            const chatId = '7768630615'; // Replace with your chat ID
+            
+            const message = `🎉 New Order Received 🎉
+            
+Order ID: ${order.orderId}
+Plan: ${order.planType} (${order.planDuration} days)
+Amount: ₹${order.amount}
+UID: ${order.uid}
+Server: ${order.server}
+Telegram: ${order.telegram}
+Transaction ID: ${order.transactionId}
+Date: ${new Date(order.date).toLocaleString()}`;
+
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+                
+                const data = await response.json();
+                console.log('Telegram response:', data);
+            } catch (error) {
+                console.error('Error sending to Telegram:', error);
+            }
+        }
+        
+        // DOM Content Loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createStars();
+            
+            // Plan selection
+            const selectPlanButtons = document.querySelectorAll('.select-plan');
+            const orderForm = document.getElementById('order-form');
+            const planTypeInput = document.getElementById('plan-type');
+            const planDurationInput = document.getElementById('plan-duration');
+            const planPriceInput = document.getElementById('plan-price');
+            
+            selectPlanButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const type = this.getAttribute('data-type');
+                    const days = this.getAttribute('data-days');
+                    const price = this.getAttribute('data-price');
+                    
+                    // Set form values
+                    planTypeInput.value = type === 'auto' ? 'Auto Likes' : 'Manual Likes';
+                    planDurationInput.value = `${days} Days`;
+                    planPriceInput.value = `₹${price}`;
+                    
+                    // Store selected plan in localStorage
+                    localStorage.setItem('selectedPlan', JSON.stringify({
+                        type,
+                        days,
+                        price
+                    }));
+                    
+                    // Show order form
+                    orderForm.style.display = 'block';
+                    orderForm.scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+            
+            // Order form submission
+            const orderFormElement = document.getElementById('vip-order-form');
+            const paymentModal = document.getElementById('payment-modal');
+            const closeModal = document.getElementById('close-modal');
+            const upiQrCode = document.getElementById('upi-qr-code');
+            const copyUpiBtn = document.getElementById('copy-upi-id');
+            const displayUpiId = document.getElementById('display-upi-id');
+            
+            // Set your UPI details here
+            const upiId = 'leaderabhay869@fam';
+            const upiName = 'ABHAY KUMAR';
+            
+            orderFormElement.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const uid = document.getElementById('uid').value;
+                const server = document.getElementById('server').value;
+                const telegram = document.getElementById('telegram').value;
+                const selectedPlan = JSON.parse(localStorage.getItem('selectedPlan'));
+                
+                // Generate order ID
+                const orderId = generateOrderId();
+                
+                // Set payment details
+                document.getElementById('order-id').textContent = orderId;
+                document.getElementById('payment-plan-type').textContent = 
+                    selectedPlan.type === 'auto' ? 'Auto Likes' : 'Manual Likes';
+                document.getElementById('payment-plan-duration').textContent = `${selectedPlan.days} Days`;
+                document.getElementById('payment-amount').textContent = selectedPlan.price;
+                document.getElementById('payment-uid').textContent = uid;
+                document.getElementById('payment-server').textContent = server;
+                document.getElementById('payment-telegram').textContent = telegram;
+                
+                // Generate UPI payment link with details
+                const paymentNote = `FFVIP-${orderId}-${uid}-${selectedPlan.type}-${selectedPlan.days}days`;
+                const upiLink = `upi://pay?pa=${upiId}&pn=${encodeURIComponent(upiName)}&am=${selectedPlan.price}&cu=INR&tn=${encodeURIComponent(paymentNote)}`;
+                
+                // Update QR code with UPI payment link
+                upiQrCode.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=upi://pay?pa=leaderabhay869@fam&pn=Abhay%20Kumar`;
+                displayUpiId.textContent = upiId;
+                
+                // Show payment modal
+                paymentModal.classList.add('active');
+            });
+            
+            // Close modal
+            closeModal.addEventListener('click', function() {
+                paymentModal.classList.remove('active');
+            });
+            
+            // Copy UPI ID
+            copyUpiBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(upiId).then(() => {
+                    const originalText = copyUpiBtn.textContent;
+                    copyUpiBtn.textContent = 'Copied!';
+                    setTimeout(() => {
+                        copyUpiBtn.textContent = originalText;
+                    }, 2000);
+                });
+            });
+            
+            // Confirm payment
+            const confirmPaymentBtn = document.getElementById('confirm-payment');
+            confirmPaymentBtn.addEventListener('click', function() {
+                const transactionId = document.getElementById('transaction-id').value;
+                
+                if (!transactionId) {
+                    alert('Please enter your transaction ID');
+                    return;
+                }
+                
+                const orderId = document.getElementById('order-id').textContent;
+                const selectedPlan = JSON.parse(localStorage.getItem('selectedPlan'));
+                const uid = document.getElementById('uid').value;
+                const server = document.getElementById('server').value;
+                const telegram = document.getElementById('telegram').value;
+                
+                // Create order object
+                const order = {
+                    orderId,
+                    transactionId,
+                    planType: selectedPlan.type,
+                    planDuration: selectedPlan.days,
+                    amount: selectedPlan.price,
+                    uid,
+                    server,
+                    telegram,
+                    date: new Date().toISOString(),
+                    status: 'pending'
+                };
+                
+                // Store order
+                storeOrder(order);
+                
+                // Send to Telegram bot
+                sendToTelegram(order);
+                
+                // Show success message
+                alert(`Payment confirmed! Your Order ID is ${orderId}. Service will be activated within 2 hours.`);
+                
+                // Reset form and close modal
+                orderFormElement.reset();
+                orderForm.style.display = 'none';
+                paymentModal.classList.remove('active');
+                document.getElementById('transaction-id').value = '';
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            // Close modal when clicking outside
+            paymentModal.addEventListener('click', function(e) {
+                if (e.target === paymentModal) {
+                    paymentModal.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+<!-- TELEGRAM + WHATSAPP FLOATING BUTTONS (STACKED RIGHT) -->
+<div class="floating-btn-group">
+  <!-- Telegram -->
+  <a href="https://t.me/ABHAY_GAMING7" target="_blank" class="floating-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/+91 6392750539" target="_blank" class="floating-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+</div>
+
+<style>
+  .floating-btn-group {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+  }
+
+  .floating-btn {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+
+  .floating-btn img {
+    width: 46px;
+    height: 46px;
+    display: block;
+  }
+
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+</style>
+<!-- TELEGRAM + WHATSAPP FLOATING BUTTONS (STACKED RIGHT) -->
+<div class="floating-btn-group">
+  <!-- Telegram -->
+  <a href="https://t.me/ABHAY_GAMING7" target="_blank" class="floating-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" />
+  </a>
+
+  <!-- WhatsApp -->
+  <a href="https://wa.me/916392750539" target="_blank" class="floating-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
+</div>
+
+<style>
+  .floating-btn-group {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+  }
+
+  .floating-btn {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+
+  .floating-btn img {
+    width: 46px;
+    height: 46px;
+    display: block;
+  }
+
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+</style>
+<!-- FOOTER -->
+<footer class="footer">
+  <p>©️ Copyright ABHAY GAMING</p>
+  <p>Developer: <a href="https://t.me/ABHAY_GAMING7" target="_blank">@ABHAY_GAMING7</a></p>
+  <p>
+    <a href="https://whatsapp.com/channel/0029VafRQhN9WtCD2I4NEg43" target="_blank">Whatsapp</a> |
+    <a href="https://youtube.com/@abhay_official02?si=zSPrM55PkF90GI3B" target="_blank">YouTube</a>
+  </p>
+</footer>
+
+<!-- STYLE -->
+<style>
+  .floating-btn-group {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 1000;
+  }
+
+  .floating-btn {
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+  }
+
+  .floating-btn img {
+    width: 26px;
+    height: 26px;
+    display: block;
+  }
+
+  .floating-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .footer {
+    margin-top: 80px;
+    padding: 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 14px;
+  }
+
+  .footer a {
+    color: #ffc107;
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+</style>
